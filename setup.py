@@ -6,6 +6,8 @@ from setuptools import setup, find_packages
 version = '0.1'
 
 install_requires = [
+    'setuptools',
+    'zope.interface',
     ]
 
 tests_require = [

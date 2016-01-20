@@ -25,8 +25,6 @@ from hashlib import md5, sha1
 from os import urandom
 from codecs import getencoder
 
-from zope.interface import implementer
-from zope.password.interfaces import IMatchingPasswordManager
 
 _encoder = getencoder("utf-8")
 
@@ -36,7 +34,7 @@ except NameError:
     # Py3: Define unicode.
     unicode = str
 
-@implementer(IMatchingPasswordManager)
+
 class PlainTextPasswordManager(object):
     """Plain text password manager.
     >>> from zope.interface.verify import verifyObject
@@ -61,7 +59,6 @@ class PlainTextPasswordManager(object):
     >>> manager.match(encoded)
     False
     """
-
 
     def encodePassword(self, password):
         if isinstance(password, unicode):
